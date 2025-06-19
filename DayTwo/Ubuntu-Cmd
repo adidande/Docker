@@ -1,0 +1,46 @@
+sudo su  [Switch to root user]
+docker image ls  [Lists all Docker images on the system]
+docker container ls  [Shows running containers]
+docker history  image_Id  [Shows image creation history/layers]
+docker ps -a   [Lists all containers (running + stopped)]
+
+#Docker Port Mapping
+docker run -d --name mycont -p 80:80 nginx    [Runs nginx container port 80 mapped to host]                   
+docker exec -it container_ID ls    [Runs ls inside the container]
+docker exec -it container_ID ls usr   [Lists files in /usr directory inside container]
+docker exec -it container_ID /bin/bash   [Opens a shell inside the container]
+cd /usr/share/nginx/html  [Goes to the nginx web content folder]
+ls  [Lists files in current directory]
+apt update  [Updates packages]
+apt install nano  [Installs nano editor]
+nano home.html  [Opens for editing using nano]
+curl localhost/home.html   [Check]
+
+#To stop any running container
+docker stop container_ID   [Stops the running container]
+docker stop container_Name container_Name  [Stops multiple containers by name]
+docker stop $(docker ps -q)   [Stops all running containers]
+
+#To start any stoped container
+docker start container_ID  [Starts a stopped container]
+docker start container_Name container_Name  [Starts multiple containers]
+docker start $(docker ps -q)  [Starts all running containers]
+
+lsof -i :80   [Check which process is using port 80]
+
+#To remove/delete container
+docker rm cont_Id  [Deletes a stopped container]
+docker container rm cont_Id   [Deletes a stopped container]
+ 
+#To remove multiple containers
+docker rm cont1_Id cont2_Id  [Deletes multiple containers]
+docker conatainer rm cont1_Id cont2_Id   [Deletes multiple containers using correct syntax]
+
+#To delete/remove all stopped container
+docker container prune   [Deletes all stopped containers]
+docker rm $(docker ps -aq)  [Removes all containers (stopped or running)]
+docker rm -f $(docker ps -aq)  [Force deletes all containers]
+
+#Delete container
+docker rm $(docker ps -q)   [Deletes all running containers]
+docker rm $(sudo docker ps -q)  [Deletes running containers]
