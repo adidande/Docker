@@ -1,0 +1,38 @@
+#Start Container
+docker container start container_Name  [Starts a stopped container]
+docker container start container_Name container_Name   [Starts multiple containers by name]
+docker start $(docker ps -aq) [Starts all containers (stopped or running)]
+docker container start $(docker container ls -aq)  [Starts all containers using full command]
+
+#Stop Container
+docker container stop container_Name  [Stops a running container by name]
+docker stop $(docker ps -q)  [Stops all running containers]
+docker container stop $(docker container ls -q)  [Stops all running containers using full command]
+
+docker commit container_Id NewImage_Name [Create an Image from a Docker Container]
+  
+#To create .tar file from container
+docker export container_Id > myapp.tar  [Saves container as a .tar file]
+
+#To create container from .tarfile
+docker import Tarfile_Name NewImage_Name  [Creates image from a .tar file]
+docker run -d image_name     [If the image is not available on your local system,it will be pulled from Docker Hub]
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
