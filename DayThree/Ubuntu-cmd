@@ -18,6 +18,11 @@ docker export container_Id > myapp.tar  [Saves container as a .tar file]
 docker import Tarfile_Name NewImage_Name  [Creates image from a .tar file]
 docker run -d image_name     [If the image is not available on your local system,it will be pulled from Docker Hub]
 
+#Delete Images
+docker rmi Image_Id
+docker image prune
+docker rmi $(docker images -q)  [deletes all images]
+
 
 
 
